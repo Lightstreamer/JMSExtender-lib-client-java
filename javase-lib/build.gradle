@@ -75,11 +75,6 @@ publishing {
 
     repositories {
         maven {
-            name 'myRepo'
-            url  "file://${buildDir}/repo"
-        }
-
-        maven {
             url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
             credentials {
                 username ossrhUsername

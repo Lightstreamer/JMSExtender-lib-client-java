@@ -29,33 +29,6 @@ public class ItemDescriptor extends Descriptor {
 
   public ItemDescriptor(
       String dataAdapterName,
-      String localClientId,
-      String localSessionGuid,
-      DestinationType destinationType,
-      String destinationName,
-      String subscriptionName,
-      boolean durable,
-      boolean noLocal,
-      boolean shared,
-      AcknowledgeMode ackMode) {
-
-    this(
-        dataAdapterName,
-        null,
-        localClientId,
-        localSessionGuid,
-        destinationType,
-        destinationName,
-        subscriptionName,
-        new Boolean(durable),
-        new Boolean(noLocal),
-        new Boolean(shared),
-        ackMode,
-        null);
-  }
-
-  public ItemDescriptor(
-      String dataAdapterName,
       String sessionId,
       String localClientId,
       String localSessionGuid,

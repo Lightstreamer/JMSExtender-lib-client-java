@@ -1,17 +1,15 @@
-
-
 plugins {
-    id 'android-library'
-    //id 'com.vanniktech.android.javadoc'
+    id 'com.android.library'
     id 'maven-publish'
+    id 'signing'
 }
 
 def clientDepVersion = project.'lsAndroid.depVersion'
 
 dependencies {
-    rootProject.ext.commonLibs.each { implementation it }
-    implementation "com.lightstreamer:ls-android-client:$clientDepVersion"
-    runtimeOnly project(':ls-jms-javase-client')
+    rootProject.ext.commonLibs.api.each { api it }
+    rootProject.ext.commonLibs.implementation.each { implementation it }
+    api "com.lightstreamer:ls-android-client:$clientDepVersion"
 }
 
 android {
@@ -43,8 +41,6 @@ android {
 }
 
 afterEvaluate {
-
-
     publishing {
         publications {
             androidLibrary(MavenPublication) {
@@ -85,17 +81,20 @@ afterEvaluate {
 
         repositories {
             maven {
-                name = 'myRepo'
-                url = "file://${buildDir}/repo"
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                credentials {
+                    username ossrhUsername
+                    password ossrhPassword
+                }
             }
         }
+
+        signing {
+            sign publishing.publications.androidLibrary
+        }
     }
-
-
-
 }
 
-//task javadoc(type:Javadoc, dependsOn: build) {
 android.libraryVariants.all { variant ->
     if (variant.name == 'release') {
         task("javadocRelease", type:Javadoc, dependsOn: compileReleaseSources) {
@@ -106,8 +105,8 @@ android.libraryVariants.all { variant ->
             classpath += project.files("$buildDir/intermediates/javac/release/classes")
             exclude '**/AndroidDisconnectionHandler.java'
             exclude '**/BuildConfig.java'
-            exclude "**/descriptors/**.java"
-            exclude "**/utils/**.java"
+            exclude "**/descriptors"
+            exclude "**/utils"
             options.overview '../src/android/javadoc/overview.html'
             options.links "${project.'lsAndroid.javadocsLink'}/$clientDepVersion"
             options.links project.'jms.javadocsLink'
@@ -118,6 +117,8 @@ android.libraryVariants.all { variant ->
             archiveClassifier.set('javadoc')
             from javadocRelease.destinationDir
         }
+
+
     }
 }
 
@@ -127,4 +128,3 @@ task androidSourcesJar(type: Jar) {
 }
 
 check.dependsOn(rootProject.tasks.verifyGoogleJavaFormat)
-

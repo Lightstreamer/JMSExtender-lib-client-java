@@ -1,13 +1,15 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'signing'
 }
 
 def clientDepVersion = project.'lsJavaSE.depVersion'
 
 dependencies {
-    rootProject.ext.commonLibs.each { implementation it }
-    implementation "com.lightstreamer:ls-javase-client:$clientDepVersion"
+    rootProject.ext.commonLibs.api.each { api it }
+    rootProject.ext.commonLibs.implementation.each { implementation it }
+    api "com.lightstreamer:ls-javase-client:$clientDepVersion"
 }
 
 sourceSets {
@@ -40,25 +42,19 @@ publishing {
     publications {
         javaSElibrary(MavenPublication) {
             from components.java
-            versionMapping {
-                usage('java-api') {
-                    fromResolutionOf('runtimeClasspath')
-                }
-                usage('java-runtime') {
-                    fromResolutionResult()
-                }
-            }
 
             pom {
                 name = POM_JAVASE_LIBRARY_NAME
                 description = POM_DESCRIPTION
                 url = POM_URL
+
                 licenses {
                     license {
                         name = POM_LICENSE_NAME
                         url = POM_LICENSE_URL
                     }
                 }
+
                 developers {
                     developer {
                         name = POM_DEVELOPER_NAME
@@ -67,6 +63,7 @@ publishing {
                         organizationUrl = POM_DEVELOPER_ORGANIZATION_URL
                     }
                 }
+
                 scm {
                     connection = "scm:git:${POM_URL}.git"
                     developerConnection = "scm:git:${POM_URL}.git"
@@ -78,10 +75,23 @@ publishing {
 
     repositories {
         maven {
-            name = 'myRepo'
-            url = "file://${buildDir}/repo"
+            name 'myRepo'
+            url  "file://${buildDir}/repo"
+        }
+
+        maven {
+            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+            credentials {
+                username ossrhUsername
+                password ossrhPassword
+            }
         }
     }
+}
+
+
+signing {
+    sign publishing.publications.javaSElibrary
 }
 
 check.dependsOn(rootProject.tasks.verifyGoogleJavaFormat)

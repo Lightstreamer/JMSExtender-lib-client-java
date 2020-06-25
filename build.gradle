@@ -1,0 +1,51 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.0.0'
+    }
+}
+
+plugins {
+    id 'com.github.sherter.google-java-format' version '0.9'
+}
+
+allprojects {
+    version = VERSION
+    group = GROUP
+
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://www.lightstreamer.com/repo/maven'
+        }
+    }
+
+    tasks.withType(GenerateModuleMetadata) {
+        enabled = false
+    }
+}
+
+ext {
+    commonLibs = [
+        api: ['javax.jms:javax.jms-api:2.0'],
+        implementation : [
+            'com.fasterxml.jackson.core:jackson-core:2.8.1',
+            'com.fasterxml.jackson.core:jackson-databind:2.8.1'
+        ]
+    ]
+}
+
+import com.github.sherter.googlejavaformatgradleplugin.GoogleJavaFormat
+import com.github.sherter.googlejavaformatgradleplugin.VerifyGoogleJavaFormat
+
+googleJavaFormat {
+  source 'src/main'
+  source 'src/andoid'
+  source 'src/java-se'
+  include '**/*.java'
+}

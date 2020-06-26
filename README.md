@@ -53,7 +53,7 @@ dependencies {
 ## Documentation
 
 - [Java SE Client Lib API Specification](https://lightstreamer.com/api/ls-jms-java-client/1.0.0/index.html)
-- [Android Client Lib API Specification]([https://lightstreamer.com/api/ls-jms-android-client/1.0.0/index.html)
+- [Android Client Lib API Specification](https://lightstreamer.com/api/ls-jms-android-client/1.0.0/index.html)
 
 ## Examples
 

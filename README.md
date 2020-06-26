@@ -54,6 +54,7 @@ dependencies {
 
 - [Java SE Client Lib API Specification](https://lightstreamer.com/api/ls-jms-java-client/1.0.0/index.html)
 - [Android Client Lib API Specification](https://lightstreamer.com/api/ls-jms-android-client/1.0.0/index.html)
+- Chapters "SDKs for Java SE and Android" and "JMS Features for Java SDKs" of [*Lightstreamer JMS Extender Documentation*](https://www.lightstreamer.com/jms-docs/baseparent/DOCS/JMS%20Extender%20Documentation.pdf)
 
 ## Examples
 

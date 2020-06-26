@@ -1,6 +1,6 @@
 # Lightstreamer JMS Extender Java Client SDK
 
-The Lightstreamer JMS Extender Java Client Library enables any Java or Android application to connect to any JMS broker via Lightstreamer JMS Extender.
+The Lightstreamer JMS Extender Java Client Library enables any Java or Android application to connect to any JMS broker through the mediation of the JMS Extender, by using the standard JMS interface.
 
 This library is a direct implementation of the JMS 2.0 specification.
 
@@ -10,7 +10,7 @@ The library is compatible with Lightstreamer JMS Extender since version 2.0.0.
 
 ## Installation
 
-A specific version of the library exists for both the *Java SE* and *Android* platforms.
+Although there is no formal difference from a developer's perspective, a specific version of the library exists for both the *Java SE* and *Android* platforms.
 
 ### Java SE
 

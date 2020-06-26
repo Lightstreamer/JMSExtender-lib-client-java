@@ -10,6 +10,7 @@ import com.lightstreamer.client.LightstreamerClient;
  * LSQueueConnectionFactory} and {@link LSTopicConnectionFactory}) as processing of JMS connection
  * proceeds.
  */
+@FunctionalInterface
 public interface LSConnectionListener {
 
   /**

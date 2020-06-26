@@ -10,9 +10,9 @@ The library is compatible with Lightstreamer JMS Extender since version 2.0.0.
 
 ## Installation
 
-A specific version of the library exists for both the *JavaSE* and *Android* platforms.
+A specific version of the library exists for both the *Java SE* and *Android* platforms.
 
-### JavaSE
+### Java SE
 
 #### Maven
 
@@ -51,6 +51,9 @@ dependencies {
 ```
 
 ## Documentation
+
+- (Java SE Client Lib API Specification)[https://lightstreamer.com/api/ls-jms-java-client/1.0.0/index.html]
+- (Android Client Lib API Specification)[https://lightstreamer.com/api/ls-jms-android-client/1.0.0/index.html]
 
 ## Examples
 

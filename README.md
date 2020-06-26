@@ -50,6 +50,40 @@ dependencies {
 }
 ```
 
+### Quick Start
+
+```java
+LSConnectionFactory factory = new LSConnectionFactory("http://my.push.server:8080/", "ActiveMQ");
+Connection connection = factory.createConnection("user", "password");
+connection.setExceptionListener(new ExceptionListener() {
+  public void onException(JMSException exception) {
+    // Handle exceptions here
+  }
+});
+Session sessions = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+Topic topic = sessions.createTopic("stocksTopic");
+MessageConsumer connection = sessions.createConsumer(topic);
+cons.setMessageListener(new MessageListener() {
+    public void onMessage(Message message) {
+    // Handle messages here
+    }
+});
+connection.start();
+```
+
+## Building
+
+To build the library, run the gradle `build` task:
+
+```sh
+$ ./gradlew build
+```
+
+After that, you can find all generated artifcats (library, javadocs, and source code) under:
+
+- `javase-lib`, for the Java SE library
+- `android-lib`, for the Android library
+
 ## Documentation
 
 - [Java SE Client Lib API Specification](https://lightstreamer.com/api/ls-jms-java-client/1.0.0/index.html)

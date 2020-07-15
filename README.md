@@ -72,7 +72,11 @@ Note how for gradle-based projects, you have to explicitly specify the additiona
 ### Quick Start
 
 ```java
-LSConnectionFactory factory = new LSConnectionFactory("http://my.push.server:8080/", "ActiveMQ");
+...
+// Create a connection factory for establishing a connection to the JMS Extender instance listening at the specified URL, using the specified JMS connector.
+ConnectionFactory factory = new LSConnectionFactory("http://my.push.server:8080/", "ActiveMQ");
+
+// Create a connection and set an exception handler.
 Connection connection = factory.createConnection("user", "password");
 connection.setExceptionListener(new ExceptionListener() {
   public void onException(JMSException exception) {
@@ -80,18 +84,23 @@ connection.setExceptionListener(new ExceptionListener() {
   }
 });
 
-Session sessions = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+// Create a session.
+Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
+// Create a topic.
 Topic topic = sessions.createTopic("stocksTopic");
 
-MessageConsumer connection = sessions.createConsumer(topic);
-
-cons.setMessageListener(new MessageListener() {
+// Create a message consumer and set a message listener for handling incoming messages from the topic.
+MessageConsumer consumer = sessions.createConsumer(topic);
+consumer.setMessageListener(new MessageListener() {
     public void onMessage(Message message) {
     // Handle messages here
     }
 });
+
+// Start the connection.
 connection.start();
+...
 ```
 
 ## Building
@@ -102,7 +111,7 @@ To build the library, run the gradle `build` task:
 $ ./gradlew build
 ```
 
-After that, you can find all generated artifcats (library, javadocs, and source code) under:
+After that, you can find all generated artifacts (library, javadocs, and source code) under:
 
 - `javase-lib`, for the Java SE library
 - `android-lib`, for the Android library

@@ -28,27 +28,46 @@ For Maven, add the following dependency to your `pom.xml`:
 
 #### Gradle
 
-For Gradle, update the dependencies section of the `build.gradle` file with the following declaration:
+For Gradle, update the `repositories` and `dependencies` sections of the `build.gradle` file as follows:
 
 ```groovy
+repositories {
+  ...
+  maven {
+      url 'https://www.lightstreamer.com/repo/maven'
+  }
+  ...
+}
+
 dependencies {
     ...
     implementation 'com.lightstreamer:ls-jms-javase-client:1.0.0'
     ...
 }
+
 ```
 
-### Android
+#### Android
 
-Include the reference to the Android artifact in the `build.gradle` file:
+Update the `build.gradle` file as follows:
 
 ```groovy
+repositories {
+  ...
+  maven {
+      url 'https://www.lightstreamer.com/repo/maven'
+  }
+  ...
+}
+
 dependencies {
     ...
     implementation 'com.lightstreamer:ls-jms-android-client:1.0.0'
     ...
 }
 ```
+
+Note how for gradle-based projects, you have to explicitly specify the additional repository, which hosts some transitive dependencies of the library.
 
 ### Quick Start
 
@@ -60,9 +79,13 @@ connection.setExceptionListener(new ExceptionListener() {
     // Handle exceptions here
   }
 });
+
 Session sessions = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+
 Topic topic = sessions.createTopic("stocksTopic");
+
 MessageConsumer connection = sessions.createConsumer(topic);
+
 cons.setMessageListener(new MessageListener() {
     public void onMessage(Message message) {
     // Handle messages here
@@ -86,7 +109,7 @@ After that, you can find all generated artifcats (library, javadocs, and source 
 
 ## Documentation
 
-- [Java SE Client Lib API Specification](https://lightstreamer.com/api/ls-jms-java-client/1.0.0/index.html)
+- [Java SE Client Lib API Specification](https://lightstreamer.com/api/ls-jms-javase-client/1.0.0/index.html)
 - [Android Client Lib API Specification](https://lightstreamer.com/api/ls-jms-android-client/1.0.0/index.html)
 - Chapters "SDKs for Java SE and Android" and "JMS Features for Java SDKs" of [*Lightstreamer JMS Extender Documentation*](https://www.lightstreamer.com/jms-docs/baseparent/DOCS/JMS%20Extender%20Documentation.pdf)
 

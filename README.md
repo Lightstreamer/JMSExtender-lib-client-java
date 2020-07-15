@@ -73,7 +73,8 @@ Note how for gradle-based projects, you have to explicitly specify the additiona
 
 ```java
 ...
-// Create a connection factory for establishing a connection to the JMS Extender instance listening at the specified URL, using the specified JMS connector.
+// Create a connection factory for establishing a connection to the JMS Extender instance listening
+// at the specified URL, using the specified JMS connector.
 ConnectionFactory factory = new LSConnectionFactory("http://my.push.server:8080/", "ActiveMQ");
 
 // Create a connection and set an exception handler.

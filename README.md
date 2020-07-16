@@ -125,6 +125,8 @@ After that, you can find all generated artifacts (library, javadocs, and source 
 
 ## Examples
 
+- [Lightstreamer JMS Extender - Basic Stock-List Demo - Java SE Client](https://github.com/Lightstreamer/Lightstreamer-JMS-example-StockList-client-java)
+
 ## Support
 
 For questions and support please use the [Official Forum](https://forums.lightstreamer.com/). The issue list of this page is **exclusively** for bug reports and feature requests.

@@ -122,7 +122,7 @@ where `<your_android_sdk_root>` is a folder in your system.
   $ ./sdkmanager --licenses
   ```
  
-Then, run the gradle `build` task:
+Then, run the Gradle `build` task:
 
 ```sh
 $ ./gradlew build

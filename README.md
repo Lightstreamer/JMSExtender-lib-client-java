@@ -110,11 +110,11 @@ As a prerequisite, you need the _Android command line tools_ installed on you sy
 
 - [Download](https://developer.android.com/studio#command-tools) the tools package and extract it into `<your_android_sdk_root>/cmdline-tools` folder,
 where `<your_android_sdk_root>` is a folder in your system.
-- Export the `ANDROID_SDK_ROOT` environment:
+- Export the `ANDROID_SDK_ROOT` environment variable:
   ```sh
   $ export ANDROID_SDK_ROOT=<your_android_sdk_root>
   ```
-- From `<your_android_sdk_root>/cmdline-tools/tools/bin` folder, run the following command and accept all offered SDK package licenses:
+- From `<your_android_sdk_root>/cmdline-tools/tools/bin`, run the following command and accept all offered SDK package licenses:
   ```sh
   $ ./sdkmanager --licenses
   ```

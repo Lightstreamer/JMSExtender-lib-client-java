@@ -106,8 +106,11 @@ connection.start();
 
 ## Building
 
-As a prerequisite, you need the _Android command line tools_ installed on you system:
+To build the library you need:
+- JVM version 11
+- _Android command line tools_
 
+To install dne Android command line tools, follow these steps:
 - [Download](https://developer.android.com/studio#command-tools) the tools package and extract it into `<your_android_sdk_root>/cmdline-tools` folder,
 where `<your_android_sdk_root>` is a folder in your system.
 - Export the `ANDROID_SDK_ROOT` environment variable:
@@ -119,7 +122,7 @@ where `<your_android_sdk_root>` is a folder in your system.
   $ ./sdkmanager --licenses
   ```
  
-To build the library, run the gradle `build` task:
+Then, run the gradle `build` task:
 
 ```sh
 $ ./gradlew build

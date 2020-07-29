@@ -531,7 +531,7 @@ class LSConnection implements Connection {
 
     // Stop all the sessions
     for (LSSessionImpl session : sessions.values()) {
-      session.start();
+      session.stop();
     }
   }
 

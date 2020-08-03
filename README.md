@@ -142,6 +142,7 @@ After that, you can find all generated artifacts (library, javadocs, and source 
 ## Examples
 
 - [Lightstreamer JMS Extender - Basic Stock-List Demo - Java SE Client](https://github.com/Lightstreamer/Lightstreamer-JMS-example-StockList-client-java)
+- [Lightstreamer JMS Extender - Basic Stock-List Demo - Android Client](https://github.com/Lightstreamer/Lightstreamer-JMS-example-StockList-client-android)
 
 ## Support
 

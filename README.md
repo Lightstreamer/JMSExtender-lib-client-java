@@ -14,6 +14,8 @@ Although there is no formal difference from a developer's perspective, a specifi
 
 ### Java SE
 
+The Java SE variant of the library requires Java version 8 or later.
+
 #### Maven
 
 For Maven, add the following dependency to your `pom.xml`:
@@ -48,6 +50,8 @@ dependencies {
 ```
 
 ### Android
+
+The Android variant of the library requires Android 10.0 (API Level 29) or later.
 
 Update the `build.gradle` file as follows:
 
@@ -107,7 +111,7 @@ connection.start();
 ## Building
 
 To build the library you need:
-- JVM version 11.
+- JVM version 8 or later.
 - The _Android command line tools_.
 
 To install the Android command line tools, follow these steps:

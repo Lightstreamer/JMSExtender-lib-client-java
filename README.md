@@ -47,7 +47,7 @@ dependencies {
 
 ```
 
-#### Android
+### Android
 
 Update the `build.gradle` file as follows:
 

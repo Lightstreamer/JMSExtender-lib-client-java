@@ -141,7 +141,7 @@ After that, you can find all generated artifacts (library, javadocs, and source 
 
 - [Java SE Client Lib API Specification](https://lightstreamer.com/api/ls-jms-javase-client/1.0.0/index.html)
 - [Android Client Lib API Specification](https://lightstreamer.com/api/ls-jms-android-client/1.0.0/index.html)
-- Chapters "SDKs for Java SE and Android" and "JMS Features for Java SDKs" of [*Lightstreamer JMS Extender Documentation*](https://docs.lightstreamer.com/jmsextender/Lightstreamer+JMS+Extender+Documentation.pdf)
+- Chapters "SDKs for Java SE and Android" and "JMS Features for Java SDKs" of [*Lightstreamer JMS Extender Documentation*](https://lightstreamer.com/docs/jmsext/latest/JMS+Extender+Documentation.pdf)
 
 ## Examples
 
